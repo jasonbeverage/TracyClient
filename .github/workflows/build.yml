@@ -1,0 +1,17 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+on:
+  push:
+  pull_request:
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  -linux-build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: CMake
+      run: cmake .
+    - name: Build
+      run: cmake --build .
